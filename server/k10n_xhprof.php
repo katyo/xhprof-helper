@@ -14,7 +14,7 @@ if(extension_loaded('xhprof')){
     return implode('&', $str);
   }
   
-  function _k10n_xhprof_cookie($secret_key){
+  function _k10n_xhprof_cookie($secret_key = ''){
     static $opts;
     if(isset($opts)){
       return $opts;
@@ -42,28 +42,39 @@ if(extension_loaded('xhprof')){
     return $opts;
   }
   
-  function _k10n_xhprof_head($secret_key){
-    static $touch;
-    if(isset($touch))return;
-    $touch = TRUE;
+  function _k10n_xhprof_head($secret_key = ''){
+    static $opts;
+    
+    if(isset($opts)){
+      return;
+    }
+    
     $opts = _k10n_xhprof_cookie($secret_key);
-    if($opts->run){
+    
+    if(isset($opts->run)){
       $args = new StdClass();
       $args->run = $opts->run;
+      
       header('X-HProf: '._k10n_format_args($args));
+      
       xhprof_enable($opts->flags);
     }
   }
   
   function _k10n_xhprof_foot(){
-    static $touch;
-    if(isset($touch))return;
-    $touch = TRUE;
+    static $opts;
+    
+    if(isset($opts)){
+      return;
+    }
+    
     $opts = _k10n_xhprof_cookie();
-    if($opts->run){
+    
+    if(isset($opts->run)){
       $data = xhprof_disable();
       
       $xhprof_lib = '/usr/share/php5-xhprof/xhprof_lib/';
+      
       include_once $xhprof_lib.'utils/xhprof_lib.php';
       include_once $xhprof_lib.'utils/xhprof_runs.php';
       
