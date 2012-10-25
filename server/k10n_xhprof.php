@@ -1,52 +1,77 @@
 <?php
 
-function _k10n_xhprof_flags(){
-  static $bits;
-  if(isset($bits)){
-    return $bits;
+if(extension_loaded('xhprof')){
+  function _k10n_parse_args($str){
+    parse_str($str, $args);
+    return (object)$args;
   }
-  $bits = 0;
-  if(isset($_COOKIE['xhprof:flags'])){
-    $FLAGS = array(
-      'cpu' => XHPROF_FLAGS_CPU,
-      'mem' => XHPROF_FLAGS_MEMORY
-    );
-    $flags = explode('+', $_COOKIE['xhprof:flags']);
-    foreach($flags as $key){
-      if(isset($FLAGS[$flags[$key]])){
-        $bits += $FLAGS[$flags[$key]];
+  
+  function _k10n_format_args($args){
+    $str = array();
+    foreach ($args as $key => $val){
+      $str[] = $key.'='.rawurlencode($val); 
+    }
+    return implode('&', $str);
+  }
+  
+  function _k10n_xhprof_cookie($secret_key){
+    static $opts;
+    if(isset($opts)){
+      return $opts;
+    }
+    $opts = new stdClass();
+    if(isset($_SERVER['XHPROF_COOKIE'])){
+      $args = _k10n_parse_args($_SERVER['XHPROF_COOKIE']);
+      if($secret_key && $args->key != $secret_key){
+        return $opts;
       }
+      $FLAGS = array(
+        'cpu' => XHPROF_FLAGS_CPU,
+        'mem' => XHPROF_FLAGS_MEMORY
+      );
+      $opts->flags = 0;
+      $flags = explode('+', $args->flags);
+      foreach($flags as $key){
+        if(isset($FLAGS[$flags[$key]])){
+          $opts->flags += $FLAGS[$flags[$key]];
+        }
+      }
+      $opts->source = $args->source;
+      $opts->run = uniqid();
+    }
+    return $opts;
+  }
+  
+  function _k10n_xhprof_head($secret_key){
+    static $touch;
+    if(isset($touch))return;
+    $touch = TRUE;
+    $opts = _k10n_xhprof_cookie($secret_key);
+    if($opts->run){
+      $args = new StdClass();
+      $args->run = $opts->run;
+      header('X-HProf: '._k10n_format_args($args));
+      xhprof_enable($opts->flags);
     }
   }
-  return $bits;
-}
-
-function _k10n_xprof_source(){
-  if(isset($_COOKIE['xhprof:source'])){
-    return $_COOKIE['xhprof:source'];
+  
+  function _k10n_xhprof_foot(){
+    static $touch;
+    if(isset($touch))return;
+    $touch = TRUE;
+    $opts = _k10n_xhprof_cookie();
+    if($opts->run){
+      $data = xhprof_disable();
+      
+      $xhprof_lib = '/usr/share/php5-xhprof/xhprof_lib/';
+      include_once $xhprof_lib.'utils/xhprof_lib.php';
+      include_once $xhprof_lib.'utils/xhprof_runs.php';
+      
+      $runs = new XHProfRuns_Default();
+      $runs->save_run($data, $opts->source, $opts->run);
+    }
   }
-  return $_SERVER['HTTP_HOST'];
-}
-
-function _k10n_xhprof_head(){
-  $flags = _k10n_xhprof_flags();
-  if($flags){
-    xhprof_enable($flags);
-  }
-}
-
-function _k10n_xhperf_foot(){
-  if(_k10n_xhprof_flags()){
-    $data = xhprof_disable();
-
-    $xhprof_lib = '/usr/share/php5-xhprof/xhprof_lib/';
-    include_once $xhprof_lib.'utils/xhprof_lib.php';
-    include_once $xhprof_lib.'utils/xhprof_runs.php';
-
-    $runs = new XHProfRuns_Default();
-    $source = _k10n_xprof_source();
-    $run = $runs->save_run($data, $source);
-
-    //'http://xhprof.'.$_SERVER['HTTP_HOST'].'/index.php?run='.$run.'&source='.$source;
-  }
+}else{
+  function _k10n_xhprof_head($secret_key){}
+  function _k10n_xhprof_foot(){}
 }
