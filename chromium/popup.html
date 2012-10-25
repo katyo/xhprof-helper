@@ -5,12 +5,19 @@
 <script src="popup.js"></script>
 </head>
 <body>
-<filedset>
-  <label>Profiling flags</label>
+<filedset id="opts">
+  <label><input type="checkbox" name="state" value="1"/>Profiling</label>
+  <label>Flags</label>
   <label><input type="checkbox" name="flags[]" value="cpu"/>CPU</label>
   <label><input type="checkbox" name="flags[]" value="mem"/>Memory</label>
-  <label>Profiling Id</label>
+  <label>Source</label>
   <input type="text" name="source" value="xhprof"/>
+  <label>Requests</label>
+  <label><input type="checkbox" name="types[]" value="main_frame"/>page</label>
+  <label><input type="checkbox" name="types[]" value="sub_frame"/>frames</label>
+  <label><input type="checkbox" name="types[]" value="xmlhttprequest"/>xhrs</label>
+</fieldset>
+<filedset id="runs">
 </fieldset>
 </body>
 </html>

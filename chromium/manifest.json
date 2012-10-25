@@ -10,8 +10,9 @@
     "16": "icon_16.png"
   },
   "permissions": [
-    "cookies",
     "tabs",
+    "webRequest",
+    "webRequestBlocking",
     "http://*/*",
     "https://*/*"
   ],
