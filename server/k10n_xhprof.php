@@ -20,8 +20,9 @@ if(extension_loaded('xhprof')){
       return $opts;
     }
     $opts = new stdClass();
-    if($secret_key === NULL && isset(get_cfg_var('xhprof.secret_key'))){
-      $secret_key = get_cfg_var('xhprof.secret_key');
+    $conf_secret_key = get_cfg_var('xhprof.secret_key');
+    if($secret_key === NULL && $conf_secret_key){
+      $secret_key = $conf_secret_key;
     }
     if(isset($_SERVER['XHPROF_COOKIE'])){
       $args = _k10n_parse_args($_SERVER['XHPROF_COOKIE']);
@@ -34,9 +35,9 @@ if(extension_loaded('xhprof')){
       );
       $opts->flags = 0;
       $flags = explode('+', $args->flags);
-      foreach($flags as $key){
-        if(isset($FLAGS[$flags[$key]])){
-          $opts->flags += $FLAGS[$flags[$key]];
+      foreach($flags as $key => $val){
+        if(isset($FLAGS[$val])){
+          $opts->flags += $FLAGS[$val];
         }
       }
       $opts->source = $args->source;
@@ -76,8 +77,9 @@ if(extension_loaded('xhprof')){
     if(isset($opts->run)){
       $data = xhprof_disable();
       
-      $xhprof_lib = isset(get_cfg_var('xhprof.library_dir')) ?
-        get_cfg_var('xhprof.library_dir') :
+      $conf_library_dir = get_cfg_var('xhprof.library_dir');
+      $xhprof_lib = $conf_library_dir ?
+        $conf_library_dir :
         '/usr/share/php5-xhprof/xhprof_lib';
       
       include_once $xhprof_lib.'/utils/xhprof_lib.php';
