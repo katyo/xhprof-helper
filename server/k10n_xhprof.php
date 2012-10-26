@@ -14,12 +14,15 @@ if(extension_loaded('xhprof')){
     return implode('&', $str);
   }
   
-  function _k10n_xhprof_cookie($secret_key = ''){
+  function _k10n_xhprof_cookie($secret_key = NULL){
     static $opts;
     if(isset($opts)){
       return $opts;
     }
     $opts = new stdClass();
+    if($secret_key === NULL && isset(get_cfg_var('xhprof.secret_key'))){
+      $secret_key = get_cfg_var('xhprof.secret_key');
+    }
     if(isset($_SERVER['XHPROF_COOKIE'])){
       $args = _k10n_parse_args($_SERVER['XHPROF_COOKIE']);
       if($secret_key && $args->key != $secret_key){
@@ -42,7 +45,7 @@ if(extension_loaded('xhprof')){
     return $opts;
   }
   
-  function _k10n_xhprof_head($secret_key = ''){
+  function _k10n_xhprof_head($secret_key = NULL){
     static $opts;
     
     if(isset($opts)){
@@ -73,10 +76,12 @@ if(extension_loaded('xhprof')){
     if(isset($opts->run)){
       $data = xhprof_disable();
       
-      $xhprof_lib = '/usr/share/php5-xhprof/xhprof_lib/';
+      $xhprof_lib = isset(get_cfg_var('xhprof.library_dir')) ?
+        get_cfg_var('xhprof.library_dir') :
+        '/usr/share/php5-xhprof/xhprof_lib';
       
-      include_once $xhprof_lib.'utils/xhprof_lib.php';
-      include_once $xhprof_lib.'utils/xhprof_runs.php';
+      include_once $xhprof_lib.'/utils/xhprof_lib.php';
+      include_once $xhprof_lib.'/utils/xhprof_runs.php';
       
       $runs = new XHProfRuns_Default();
       $runs->save_run($data, $opts->source, $opts->run);

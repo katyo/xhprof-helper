@@ -7,4 +7,4 @@ function system_exit(){
   _k10n_xhprof_foot();
 }
 
-_k10n_xhprof_head('eej2oowu7Rad');
+_k10n_xhprof_head();
