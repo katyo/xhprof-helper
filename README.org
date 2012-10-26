@@ -1,0 +1,39 @@
+* Overview
+
+  This is a simple [[http://pecl.php.net/package/xhprof][XHProf]] helper. It consists of [[http://www.chromium.org/Home][Chromium]] extension and some pieces of PHP code on a server side.
+  
+  *WARNING:* This software in _alpha stage_, so some features _may don't work properly_.
+
+* Configuration
+
+** XHProf
+   
+   Recommended /xhprof.ini/ looks like:
+   : ; XHProf profiling logs will be located here
+   : xhprof.output_dir=/var/log/xhprof
+   : ; XHProf library are located here
+   : xhprof.library_dir=/usr/share/php5-xhprof/xhprof_lib
+   : ; XHProf secret key (optionally may be used for
+   : ; preventing profiling requests from outsiders)
+   : xhprof.secret_key=‹∞juju∞›
+   : ; PHP Header and Footer (need for profiling any hosted script)
+   : auto_prepend_file=/path/to/server/auto_head.php
+   : auto_append_file=/path/to/server/auto_foot.php
+
+   Code of /server/auto_{head,foot}.php/ may contains any hooks, required your frameworks/hostware.
+   For example, profiling of Drupal requires to call _k10n_xhprof_foot() at drupal_exit().
+   I propose a simple solution here:
+   : function system_exit(){
+   :   _k10n_xhprof_foot();
+   : }
+
+** Web-server
+   
+   You need convert X-HProf request header to server variable XHPROF_COOKIE. For Nginx FastCGI simply add:
+   : fastcgi_param XHPROF_COOKIE $http_x_hprof;
+
+** Extension
+
+   You need to configure extension before first profiling session.
+   + Set XHProf GUI url
+   + Set secret key (optional)
