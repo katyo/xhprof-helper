@@ -7,13 +7,7 @@ if(!localStorage.opts){
   localStorage.opts = JSON.stringify(defaults);
 }
 
-var defaults = {
-  state: false,
-  flags: [],
-  source: 'xhprof',
-  types: ['main_frame']
-},
-pool = {},
+var pool = {},
 filter = {
   urls: ['<all_urls>']
 };
@@ -80,8 +74,6 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse){
     if('opts' in request){
       if(request.opts){
         inst.opts = request.opts;
-      }else if(request.opts === true){
-        inst.opts = defaults;
       }else{
         sendResponse(inst.opts);
       }
@@ -100,7 +92,12 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
   if(changeInfo.status == 'complete'){
     pool[tabId] = pool[tabId] || {
       runs: [],
-      opts: defaults
+      opts: {
+        state: false,
+        flags: [],
+        source: tab.url.replace(/[^\:]+\:\/\/([^\/]+).*$/, '$1'),
+        types: ['main_frame']
+      }
     };
     chrome.pageAction.show(tabId);
   }
