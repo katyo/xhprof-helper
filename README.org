@@ -1,6 +1,7 @@
 * Overview
 
-  This is a simple [[http://pecl.php.net/package/xhprof][XHProf]] helper. It consists of [[http://www.chromium.org/Home][Chromium]] extension and some pieces of PHP code on a server side.
+  This is a simple [[http://pecl.php.net/package/xhprof][XHProf]] helper which makes profiling PHP apps with XHProf safe and easy.
+  It consists of [[http://www.chromium.org/Home][Chromium]] extension and some pieces of PHP code on a server side.
   
   *WARNING:* This software in _alpha stage_, so some features _may don't work properly_.
 
