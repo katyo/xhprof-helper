@@ -6,6 +6,7 @@
     <link rel="stylesheet/less" href="bootstrap/less/bootstrap.less">
     <script src="less.js"></script>
     <script src="jquery.js"></script>
+    <script src="bootstrap/js/bootstrap-collapse.js"></script>
     <script src="options.js"></script>
   </head>
   <body>
@@ -31,6 +32,99 @@
             <span class="help-block">
               <strong>xhprof.secret_key</strong> option or argument of <strong>_k10n_xhprof_head()</strong>.
             </span>
+          </div>
+          <legend>Server-side Tweaking</legend>
+          <div class="accordion" id="#server">
+            <!-- init -->
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#server" href="#init">
+                  <strong>Step ♯1</strong> <em>xhprof.ini</em></a>
+              </div>
+              <div id="init" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  Install <a href="http://pecl.php.net/package/xhprof">XHProf</a> PHP extension and configure it like this:
+<pre>
+  ; XHProf profiling logs will be located here
+  xhprof.output_dir=/var/log/xhprof
+  ; XHProf library are located here
+  xhprof.library_dir=/usr/share/php5-xhprof/xhprof_lib
+  ; XHProf secret key (optionally may be used for
+  ; preventing profiling requests from outsiders)
+  xhprof.secret_key=juju
+  ; PHP Header and Footer (need for profiling any hosted script)
+  auto_prepend_file=/path/to/auto_head.php
+  auto_append_file=/path/to/auto_foot.php
+</pre>
+                  Also you need to configure web-server to work with its Web UI.
+                  Usually Web UI located here <em>/usr/share/php5-xhprof/xhprof_html</em> (in Debian-like systems).
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#server" href="#k10n">
+                 <strong>Step ♯2</strong> <em>k10n_xhprof.php</em></a>
+              </div>
+              <div id="k10n" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  Create some directory on server and upload <a href="k10n_xhprof.php">k10n_xhprof.php</a>.
+                </div>
+              </div>
+            </div>
+            <!-- head -->
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#server" href="#head">
+                  <strong>Step ♯3</strong> <em>auto_head.php</em></a>
+              </div>
+              <div id="head" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  Setup auto prepended code like this:
+<pre>
+  &lt;?php
+  
+  require 'k10n_xhprof.php';
+  
+  /* Drupal truck: Handle Drupal's drupal_exit() call with hook_exit() */
+  function system_exit(){
+    _k10n_xhprof_foot();
+  }
+  
+  _k10n_xhprof_head();
+</pre>
+                </div>
+              </div>
+            </div>
+            <!-- foot -->
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#server" href="#foot">
+                  <strong>Step ♯4</strong> <em>auto_foot.php</em></a>
+              </div>
+              <div id="foot" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  Setup auto appended code like this:
+<pre>
+  &lt;?php
+  
+  _k10n_xhprof_foot();
+</pre>
+                </div>
+              </div>
+            </div>
+            <!-- foot -->
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#server" href="#end">
+                  <strong>Step ♯5</strong> <em>extension</em></a>
+              </div>
+              <div id="end" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  Finally set options of this extension according to your server config.
+                </div>
+              </div>
+            </div>
           </div>
           <hr>
           <p>
