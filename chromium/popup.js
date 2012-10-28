@@ -66,10 +66,10 @@ window.addEventListener('load', function(){
     }, function(runs){
       var links = [];
       for(var i = 0; i < runs.length; i++){
-        links.push('<a href="'+runs[i].url+'">'+runs[i].run+'</a>');
+        links.push('<a href="'+runs[i].url+'" class="btn btn-info btn-mini">'+runs[i].run+'</a>');
       }
       if(links.length){
-        runs_set.html('<ul><li>'+links.join('</li><li>')+'</li></ul>');
+        runs_set.html(links.join(' '));
       }
     });
   });
