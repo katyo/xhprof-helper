@@ -27,16 +27,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="15.839192"
-     inkscape:cx="17.266697"
-     inkscape:cy="4.7185395"
+     inkscape:zoom="5.6"
+     inkscape:cx="9.8492577"
+     inkscape:cy="5.7592252"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="968"
+     inkscape:window-width="1024"
+     inkscape:window-height="702"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="0"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -54,7 +54,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,28 +63,35 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-1033.3622)">
+    <path
+       style="font-size:10.43093013999999918px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.20000000000000001;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Bitstream Vera Sans;opacity:0.5"
+       d="m 2.65625,1035.6625 2.21875,3.375 -2.375,3.625 1.78125,0 1.625,-2.6563 1.625,2.6563 1.90625,0 -2.4375,-3.5313 2.25,-3.4687 -1.8125,0 -1.4375,2.5 -1.5,-2.5 -1.84375,0 z m 7.78125,0 0,7 1.6875,0 0,-3.0313 2.6875,0 0,3.0313 1.6875,0 0,-7 -1.6875,0 0,2.75 -2.6875,0 0,-2.75 -1.6875,0 z m 5.3125,8 c -0.192696,0 -0.346834,0.022 -0.5,0.062 -0.153169,0.038 -0.300022,0.092 -0.40625,0.1875 -0.10376,0.095 -0.193181,0.2141 -0.25,0.375 -0.05435,0.1586 -0.0625,0.3825 -0.0625,0.625 l 0,0.3125 -0.71875,0.25 0,0.25 0.71875,0 0,3.25 0.65625,0 0,-3.25 0.9375,0 0,-0.4688 -0.9375,0 0,-0.375 c -2e-6,-0.1473 0.04026,-0.2508 0.0625,-0.3437 0.0247,-0.095 0.04681,-0.1644 0.09375,-0.2188 0.04694,-0.054 0.115855,-0.1046 0.1875,-0.125 0.07164,-0.023 0.15118,-0.031 0.25,-0.031 0.09882,0 0.192312,0.011 0.28125,0.031 0.0914,0.018 0.173414,0.038 0.25,0.062 l 0.1875,-0.4687 c -0.09635,-0.032 -0.22023,-0.069 -0.34375,-0.094 -0.121054,-0.027 -0.260496,-0.031 -0.40625,-0.031 z m -11.4375,1.5312 c -0.148229,0 -0.256421,-5e-4 -0.375,0.031 -0.118583,0.029 -0.247405,0.073 -0.34375,0.125 -0.093878,0.05 -0.178359,0.1172 -0.25,0.1875 -0.071644,0.068 -0.130681,0.1394 -0.1875,0.2187 l -0.03125,0 -0.09375,-0.5 -0.53125,0 0,5.4063 0.65625,0 0,-1.5938 c -1e-6,-0.036 0.00494,-0.095 0,-0.1562 -0.00494,-0.063 -0.02631,-0.1286 -0.03125,-0.1875 -0.00741,-0.07 0.00741,-0.1417 0,-0.2188 l 0.03125,0 c 0.056819,0.072 0.115856,0.153 0.1875,0.2188 0.074112,0.066 0.156121,0.1064 0.25,0.1562 0.096345,0.048 0.225167,0.096 0.34375,0.125 0.118579,0.03 0.229242,0.031 0.375,0.031 0.232219,0 0.466023,-0.012 0.65625,-0.094 0.190221,-0.084 0.335343,-0.2118 0.46875,-0.375 0.135871,-0.1632 0.238383,-0.3847 0.3125,-0.625 0.074109,-0.2425 0.124996,-0.5242 0.125,-0.8437 -4e-6,-0.3173 -0.050891,-0.5723 -0.125,-0.8125 -0.074117,-0.2403 -0.176629,-0.4641 -0.3125,-0.625 -0.133407,-0.1632 -0.278529,-0.2622 -0.46875,-0.3438 -0.190227,-0.082 -0.424031,-0.125 -0.65625,-0.125 z m 4.375,0 c -0.138347,0 -0.266303,0.02 -0.375,0.062 -0.108701,0.041 -0.192316,0.086 -0.28125,0.1563 -0.086467,0.068 -0.178359,0.1593 -0.25,0.25 -0.069174,0.091 -0.12574,0.1838 -0.1875,0.2812 l -0.03125,0 -0.09375,-0.6875 -0.53125,0 0,3.7188 0.65625,0 0,-2 c -1e-6,-0.1836 0.04434,-0.3504 0.09375,-0.5 0.051878,-0.1519 0.127342,-0.2998 0.21875,-0.4063 0.093875,-0.1088 0.184035,-0.1621 0.3125,-0.2187 0.128461,-0.059 0.28186,-0.094 0.4375,-0.094 0.064229,0 0.115855,-0.01 0.1875,0 0.07411,0.01 0.149575,0.02 0.21875,0.031 l 0.09375,-0.5625 c -0.06423,-0.011 -0.129817,-0.027 -0.21875,-0.031 -0.08894,-0.01 -0.17836,0 -0.25,0 z m 2.8125,0 c -0.274221,0 -0.496412,0.039 -0.71875,0.125 -0.219871,0.084 -0.409334,0.2096 -0.5625,0.375 -0.153168,0.1632 -0.291006,0.3535 -0.375,0.5938 -0.08152,0.238 -0.125,0.5042 -0.125,0.8125 0,0.3105 0.03853,0.6012 0.125,0.8437 0.08894,0.2403 0.219361,0.4283 0.375,0.5938 0.158107,0.1632 0.34757,0.2888 0.5625,0.375 0.214927,0.086 0.464292,0.125 0.71875,0.125 0.274217,0 0.498878,-0.039 0.71875,-0.125 0.219866,-0.086 0.409329,-0.2118 0.5625,-0.375 0.155634,-0.1655 0.293472,-0.3535 0.375,-0.5938 0.08399,-0.2425 0.124996,-0.5332 0.125,-0.8437 -4e-6,-0.3083 -0.06732,-0.5745 -0.15625,-0.8125 -0.08647,-0.2403 -0.185645,-0.4306 -0.34375,-0.5938 -0.155641,-0.1654 -0.347575,-0.2911 -0.5625,-0.375 -0.214931,-0.086 -0.464297,-0.125 -0.71875,-0.125 z m -7.3125,0.5 c 0.338448,0 0.594359,0.1103 0.75,0.3438 0.158105,0.2334 0.218747,0.591 0.21875,1.0625 -3e-6,0.4623 -0.060645,0.8154 -0.21875,1.0625 -0.155641,0.247 -0.416493,0.375 -0.75,0.375 -0.200108,0 -0.366598,-0.033 -0.5,-0.094 -0.133406,-0.063 -0.230977,-0.1611 -0.3125,-0.2812 -0.079056,-0.1224 -0.121665,-0.2607 -0.15625,-0.4375 -0.032117,-0.1791 -0.062501,-0.3961 -0.0625,-0.625 l 0,-0.125 c 0.00494,-0.2153 0.025442,-0.4039 0.0625,-0.5625 0.039526,-0.1587 0.108444,-0.2998 0.1875,-0.4063 0.081523,-0.1065 0.184035,-0.1666 0.3125,-0.2187 0.130931,-0.052 0.280994,-0.094 0.46875,-0.094 z m 7.3125,0 c 0.380446,0 0.644507,0.1081 0.8125,0.3438 0.170457,0.2334 0.249997,0.5888 0.25,1.0625 -3e-6,0.4737 -0.08201,0.8535 -0.25,1.0937 -0.165523,0.238 -0.432054,0.3438 -0.8125,0.3438 -0.38045,0 -0.642041,-0.1058 -0.8125,-0.3438 -0.167991,-0.2402 -0.250001,-0.62 -0.25,-1.0937 -10e-7,-0.4737 0.08448,-0.8291 0.25,-1.0625 0.167989,-0.2357 0.43205,-0.3438 0.8125,-0.3438 z"
+       id="text2985-2"
+       inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       x="2"
-       y="1043.3622"
+       style="font-size:10.43093013999999918px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#4dacff;fill-opacity:1;stroke:#000000;font-family:Bitstream Vera Sans;stroke-opacity:1;stroke-width:0.20000000000000001;stroke-miterlimit:4;stroke-dasharray:none"
+       x="1.8801286"
+       y="1108.8201"
        id="text2985"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       transform="scale(1.063757,0.94006432)"><tspan
          sodipodi:role="line"
          id="tspan2987"
-         x="2"
-         y="1043.3622"
-         style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Droid Sans;-inkscape-font-specification:Droid Sans Bold">XH</tspan></text>
+         x="1.8801286"
+         y="1108.8201"
+         style="font-size:10.43093013999999918px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Droid Sans;-inkscape-font-specification:Droid Sans Bold;stroke:#000000;stroke-opacity:1;stroke-width:0.20000000000000001;stroke-miterlimit:4;stroke-dasharray:none;fill:#4dacff;fill-opacity:1">XH</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Droid Sans;-inkscape-font-specification:Droid Sans"
-       x="2"
-       y="1049.4403"
+       style="font-size:7.26915359000000016px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#4dacff;fill-opacity:1;stroke:#000000;font-family:Droid Sans;-inkscape-font-specification:Droid Sans;stroke-opacity:1;stroke-width:0.20000000000000001;stroke-miterlimit:4;stroke-dasharray:none"
+       x="1.2980632"
+       y="1094.8613"
        id="text2991"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       transform="scale(1.0440281,0.95782862)"><tspan
          sodipodi:role="line"
          id="tspan2993"
-         x="2"
-         y="1049.4403">prof</tspan></text>
+         x="1.2980632"
+         y="1094.8613">prof</tspan></text>
   </g>
 </svg>
