@@ -5,6 +5,7 @@
     <title>K10N XHProf Options</title>
     <link rel="stylesheet/less" href="bootstrap/less/bootstrap.less">
     <script src="less.js"></script>
+    <script src="jquery.js"></script>
     <script src="options.js"></script>
   </head>
   <body>
@@ -14,19 +15,23 @@
         </div>
         <div class="span8">
           <legend>K10N XHProf Options</legend>
-          <label>XHProf User Interface Url</label>
-          <div class="input-append">
-            <input type="text" name="url" placeholder="http://xhprof.dom/">
-            <span class="add-on">?run=1234567890</span>
+          <div class="control-group">
+            <label>XHProf User Interface Url</label>
+            <div class="input-append">
+              <input type="text" id="url" placeholder="http://xhprof.dom/">
+              <span class="add-on">?run=1234567890</span>
+            </div>
+            <span class="help-block">
+              Location where <strong>xhprof_html</strong> installed.
+            </span>
           </div>
-          <span class="help-block">
-            Location where <strong>xhprof_html</strong> installed.
-          </span>
-          <label>XHProf Secret Key</label>
-          <input type="text" name="key">
-          <span class="help-block">
-            <strong>xhprof.secret_key</strong> option or argument of <strong>_k10n_xhprof_head()</strong>.
-          </span>
+          <div class="control-group">
+            <label>XHProf Secret Key</label>
+            <input type="text" id="key">
+            <span class="help-block">
+              <strong>xhprof.secret_key</strong> option or argument of <strong>_k10n_xhprof_head()</strong>.
+            </span>
+          </div>
           <hr>
           <p>k10n XHProf Chromium extension<br>
           Copyright © 2012, Kayo &lt;<a href="mailto:Kayo%20&lt;kayo@illumium.org&gt;?subject=k10n%20XHProf">kayo@illumium.org</a>&gt;</p>

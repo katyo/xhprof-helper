@@ -1,18 +1,26 @@
 window.addEventListener('load', function(){
-  var url = document.getElementsByName('url')[0],
-  key = document.getElementsByName('key')[0];
+  var url = $('#url'),
+  key = $('#key');
 
   function conf(){
     var opts = JSON.parse(localStorage.opts);
-    url.value = opts.url;
-    key.value = opts.key;
+    url.val(opts.url);
+    key.val(opts.key);
   }
 
   function save(){
     localStorage.opts = JSON.stringify({
-      url: url.value,
-      key: key.value
+      url: url.val(),
+      key: key.val()
     });
+    var group = $(this).parents('.control-group').removeClass('warning').addClass('success');
+    setTimeout(function(){
+      group.removeClass('success');
+    }, 2000);
+  }
+
+  function res(){
+    $(this).parents('.control-group').removeClass('success').addClass('warning');
   }
 
   conf();
@@ -20,7 +28,8 @@ window.addEventListener('load', function(){
   var fields = [url, key];
   for(var field in fields){
     for(var event in {change:0,keyup:0,blur:0}){
-      fields[field].addEventListener(event, save, false);
+      fields[field].bind(event, save);
     }
+    fields[field].bind('focus', res);
   }
 });
