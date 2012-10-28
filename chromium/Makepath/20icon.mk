@@ -15,3 +15,7 @@ clean: icon.clean
 icon.dist: dist.pre icon.build
 	@cp $(ICON_FILES) $(DIST)
 dist: icon.dist
+
+icon: icon.build
+
+TARGET+=icon
