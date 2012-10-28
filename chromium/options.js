@@ -27,7 +27,7 @@ window.addEventListener('load', function(){
 
   var fields = [url, key];
   for(var field in fields){
-    for(var event in {change:0,keyup:0,blur:0}){
+    for(var event in {change:0,blur:0}){
       fields[field].bind(event, save);
     }
     fields[field].bind('focus', res);
