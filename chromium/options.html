@@ -57,8 +57,6 @@
   auto_prepend_file=/path/to/auto_head.php
   auto_append_file=/path/to/auto_foot.php
 </pre>
-
-
                   Also you need to configure web-server to work with its Web UI.
                   Usually Web UI located here <em>/usr/share/php5-xhprof/xhprof_html</em> (in Debian-like systems).
                 </div>
@@ -72,6 +70,7 @@
               <div id="k10n" class="accordion-body collapse">
                 <div class="accordion-inner">
                   Create some directory on server and upload <a href="k10n_xhprof.php">k10n_xhprof.php</a>.
+                  Also you must say your web-server convert <strong>X-HProf</strong> <em>request header</em> to <strong>XHPROF_COOKIE</strong> <em>environment variable</em>. So for nginx and php-fpm you can simply add <code>fastcgi_param XHPROF_COOKIE $http_x_hprof;</code> at FastCGI config.
                 </div>
               </div>
             </div>
