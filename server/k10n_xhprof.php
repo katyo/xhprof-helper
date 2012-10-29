@@ -9,7 +9,7 @@ if(extension_loaded('xhprof')){
   function _k10n_format_args($args){
     $str = array();
     foreach ($args as $key => $val){
-      $str[] = $key.'='.rawurlencode($val); 
+      $str[] = $key.'='.rawurlencode($val);
     }
     return implode('&', $str);
   }
@@ -35,9 +35,9 @@ if(extension_loaded('xhprof')){
       );
       $opts->flags = 0;
       $flags = explode('+', $args->flags);
-      foreach($flags as $key => $val){
-        if(isset($FLAGS[$val])){
-          $opts->flags += $FLAGS[$val];
+      foreach($flags as $flag){
+        if(isset($FLAGS[$flag])){
+          $opts->flags += $FLAGS[$flag];
         }
       }
       $opts->source = $args->source;
